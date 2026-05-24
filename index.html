@@ -611,6 +611,199 @@
         align-items: center;
       }
     }
+
+    /* ===== SEÇÃO DE PREÇOS (PRODUCT PLANS) ===== */
+.pricing-section {
+  margin: 3rem 0 2rem;
+  padding: 0 1rem;
+}
+
+.product-plans {
+  width: min(80rem, 95%);
+  margin-inline: auto;
+  display: flex;
+  row-gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.product-plans li.product-plan {
+  --overlap-size: 1.5rem;
+  --border-radius: 3rem;
+  --accent-color: #d43f8d; /* tom rosa principal */
+  width: min(18rem, 100%);
+  background: rgba(255, 245, 250, 0.9);
+  backdrop-filter: blur(4px);
+  border-radius: var(--border-radius) 0 var(--border-radius) 0;
+  box-shadow: 0 15px 30px rgba(255, 80, 140, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.5rem 0 2rem;
+  position: relative;
+  border: 1px solid rgba(255, 200, 220, 0.6);
+}
+
+.product-plans li.product-plan:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 35px rgba(255, 80, 140, 0.3);
+}
+
+.product-plans li.product-plan .title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-align: center;
+  text-shadow: 0 0 2px #ffb3d9;
+}
+
+.product-plans li.product-plan .price {
+  margin-right: calc(var(--overlap-size) * -1);
+  justify-self: end;
+  padding-block: 0.4rem;
+  padding-inline: var(--overlap-size);
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  position: relative;
+  width: fit-content;
+  border-radius: 30px 0 0 30px;
+  align-self: flex-end;
+  box-shadow: -5px 5px 10px rgba(0,0,0,0.1);
+}
+
+.product-plans li.product-plan .price::after {
+  content: "";
+  position: absolute;
+  height: var(--overlap-size);
+  width: var(--overlap-size);
+  right: 0;
+  top: 100%;
+  background-color: inherit;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.product-plans li.product-plan .btn {
+  justify-self: start;
+  margin-left: calc(var(--overlap-size) * -1);
+  padding-block: 0.6rem;
+  padding-inline: 2rem;
+  border: none;
+  font-family: inherit;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--accent-color);
+  background-image: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.2) 0);
+  background-size: 100% 200%;
+  transition: background-position 0.2s ease, transform 0.1s;
+  position: relative;
+  cursor: pointer;
+  border-radius: 0 30px 30px 0;
+  width: fit-content;
+}
+
+.product-plans li.product-plan .btn:hover {
+  background-position: 0 100%;
+  filter: brightness(1.05);
+}
+
+.product-plans li.product-plan .btn:active {
+  transform: scale(0.96);
+}
+
+.product-plans li.product-plan .btn::after {
+  content: "";
+  position: absolute;
+  height: var(--overlap-size);
+  width: var(--overlap-size);
+  left: 0;
+  bottom: 100%;
+  background-color: inherit;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.product-plans li.product-plan .features {
+  list-style: none;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+  margin: 0.5rem 0;
+}
+
+.product-plans li.product-plan .features li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  border-bottom: 1px dashed rgba(200, 120, 150, 0.3);
+}
+
+.product-plans li.product-plan .features li:last-child {
+  border-bottom: none;
+}
+
+.product-plans li.product-plan .features li::before {
+  font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free", "Font Awesome 5 Free", sans-serif;
+  font-weight: 900;
+  display: inline-flex;
+  justify-content: center;
+  width: 1.2rem;
+}
+
+.product-plans li.product-plan .features li.check::before {
+  content: "\f00c";
+  color: #2e8b57;
+  font-size: 1rem;
+}
+
+.product-plans li.product-plan .features li.cross::before {
+  content: "\f00d";
+  color: #e65c9e;
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
+.obs-precos {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 2rem;
+  color: #b83b78;
+  background: rgba(255, 245, 250, 0.6);
+  display: block;
+  width: fit-content;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 1.5rem;
+  border-radius: 40px;
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 768px) {
+  .product-plans {
+    gap: 1.8rem;
+  }
+  .product-plans li.product-plan .title {
+    font-size: 1.5rem;
+  }
+  .product-plans li.product-plan .price {
+    font-size: 1.1rem;
+  }
+  .product-plans li.product-plan .btn {
+    font-size: 0.9rem;
+    padding-inline: 1.5rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -649,7 +842,7 @@
 <h2 id="servicos" class="section-title">PROCEDIMENTOS QUE REALIZAMOS</h2>
 
 <div class="cards-grid">
-  <!-- Card 1 - Design e Henna -->
+  <!-- Card 1 - Design -->
   <div class="card-container">
     <div class="card-inner">
       <div class="card-front">
@@ -659,12 +852,13 @@
       <div class="card-back">
         <strong>Design de Sobrancelhas</strong>
         <p>Estudo personalizado do formato ideal para o seu rosto, valorizando seu olhar com harmonia e precisão.</p>
-        <button class="btn-agendar" onclick="alert('Agende sua avaliação para Design!')">
+        <button class="btn-agendar" onclick="window.open('https://wa.me/5511930757126?text=Olá! Gostaria de agendar uma avaliação para DESIGN DE SOBRANCELHAS.', '_blank')">
           <span></span><span></span><span></span><span></span> AGENDAR
         </button>
       </div>
     </div>
   </div>
+
   <!-- Card 2 - Micropigmentação -->
   <div class="card-container">
     <div class="card-inner">
@@ -675,12 +869,13 @@
       <div class="card-back">
         <strong>Micropigmentação Labial e Sobrancelha</strong>
         <p>Técnica semi-permanente que define e preenche com naturalidade.</p>
-        <button class="btn-agendar" onclick="alert('Fale conosco e garanta seu horário!')">
+        <button class="btn-agendar" onclick="window.open('https://wa.me/5511930757126?text=Olá! Tenho interesse em MICROPIGMENTAÇÃO (labial ou sobrancelha). Podemos agendar?', '_blank')">
           <span></span><span></span><span></span><span></span> SAIBA MAIS
         </button>
       </div>
     </div>
   </div>
+
   <!-- Card 3 - Despigmentação -->
   <div class="card-container">
     <div class="card-inner">
@@ -691,12 +886,13 @@
       <div class="card-back">
         <strong>Despigmentação</strong>
         <p>Tratamento para clarear manchas e uniformizar o tom da pele com segurança.</p>
-        <button class="btn-agendar" onclick="alert('Agende uma avaliação gratuita!')">
+        <button class="btn-agendar" onclick="window.open('https://wa.me/5511930757126?text=Olá! Gostaria de saber mais sobre DESPIGMENTAÇÃO e agendar uma avaliação.', '_blank')">
           <span></span><span></span><span></span><span></span> QUERO SABER
         </button>
       </div>
     </div>
   </div>
+
   <!-- Card 4 - Brow Lamination -->
   <div class="card-container">
     <div class="card-inner">
@@ -707,12 +903,13 @@
       <div class="card-back">
         <strong>Brow Lamination</strong>
         <p>Efeito escova e alinhamento perfeito dos fios, mais volume.</p>
-        <button class="btn-agendar" onclick="alert('Reserve sua sessão!')">
+        <button class="btn-agendar" onclick="window.open('https://wa.me/5511930757126?text=Olá! Quero agendar um BROW LAMINATION. Podemos agendar?', '_blank')">
           <span></span><span></span><span></span><span></span> AGENDAR
         </button>
       </div>
     </div>
   </div>
+
   <!-- Card 5 - Hydra Gloss -->
   <div class="card-container">
     <div class="card-inner">
@@ -723,13 +920,14 @@
       <div class="card-back">
         <strong>Hydra Gloss</strong>
         <p>Hidratação profunda para lábios com efeito gloss, maciez natural.</p>
-        <button class="btn-agendar" onclick="alert('Promoção especial!')">
+        <button class="btn-agendar" onclick="window.open('https://wa.me/5511930757126?text=Olá! Tenho interesse no HYDRA GLOSS labial. Podemos agendar?', '_blank')">
           <span></span><span></span><span></span><span></span> EU QUERO
         </button>
       </div>
     </div>
   </div>
-  <!-- Card 6 - Nano Lips -->
+
+  <!-- Card 6 - Henna -->
   <div class="card-container">
     <div class="card-inner">
       <div class="card-front">
@@ -739,13 +937,105 @@
       <div class="card-back">
         <strong>Henna para Sobrancelhas</strong>
         <p>Coloração suave com henna vegetal, realçando fios claros e dando definição por até 15 dias.</p>
-        <button class="btn-agendar" onclick="alert('Agende sua sessão de Henna!')">
+        <button class="btn-agendar" onclick="window.open('https://wa.me/5511930757126?text=Olá! Gostaria de agendar uma sessão de HENNA para sobrancelhas.', '_blank')">
           <span></span><span></span><span></span><span></span> AGENDAR
         </button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- SEÇÃO DE PREÇOS / PLANOS -->
+<!-- SEÇÃO DE PREÇOS - 1 CARD POR SERVIÇO -->
+<section class="pricing-section">
+  <h2 class="section-title">Tabela de Preços</h2>
+  <ul class="product-plans">
+    <!-- 1. Design -->
+    <li class="product-plan">
+      <div class="title">Design</div>
+      <div class="price">R$ 59,90</div>
+      <ul class="features">
+        <li class="check">Análise facial personalizada</li>
+        <li class="check">Técnica exclusiva de medição</li>
+        <li class="check">Design harmonioso</li>
+        <li class="cross">Inclui henna</li>
+        <li class="cross">Sessão de retoque</li>
+      </ul>
+      <button class="btn" onclick="window.open('https://wa.me/5511930757126?text=Olá! Gostaria de agendar o DESIGN de sobrancelhas (R$ 59,90).', '_blank')">Agendar</button>
+    </li>
+
+    <!-- 2. Henna -->
+    <li class="product-plan">
+      <div class="title">Henna</div>
+      <div class="price">R$ 49,90</div>
+      <ul class="features">
+        <li class="check">Henna vegetal hipoalergênica</li>
+        <li class="check">Duração de 10 a 15 dias</li>
+        <li class="check">Realce dos fios claros</li>
+        <li class="cross">Design incluso</li>
+        <li class="cross">Sessão de retoque</li>
+      </ul>
+      <button class="btn" onclick="window.open('https://wa.me/5511930757126?text=Olá! Quero agendar a aplicação de HENNA (R$ 49,90).', '_blank')">Agendar</button>
+    </li>
+
+    <!-- 3. Micropigmentação -->
+    <li class="product-plan">
+      <div class="title">Micropigmentação</div>
+      <div class="price">R$ 349,90</div>
+      <ul class="features">
+        <li class="check">Técnica semi-permanente</li>
+        <li class="check">Anestesia tópica inclusa</li>
+        <li class="check">Uma sessão + retoque grátis</li>
+        <li class="cross">Despigmentação labial</li>
+        <li class="cross">Hydra Gloss</li>
+      </ul>
+      <button class="btn" onclick="window.open('https://wa.me/5511930757126?text=Olá! Tenho interesse na MICROPIGMENTAÇÃO (R$ 349,90). Podemos agendar?', '_blank')">Agendar</button>
+    </li>
+
+    <!-- 4. Despigmentação -->
+    <li class="product-plan">
+      <div class="title">Despigmentação</div>
+      <div class="price">R$ 189,90</div>
+      <ul class="features">
+        <li class="check">Clareamento de manchas labiais</li>
+        <li class="check">Tecnologia suave e segura</li>
+        <li class="check">Sessão única com resultado progressivo</li>
+        <li class="cross">Micropigmentação</li>
+        <li class="cross">Brow Lamination</li>
+      </ul>
+      <button class="btn" onclick="window.open('https://wa.me/5511930757126?text=Olá! Gostaria de saber mais sobre DESPIGMENTAÇÃO labial (R$ 189,90).', '_blank')">Agendar</button>
+    </li>
+
+    <!-- 5. Brow Lamination -->
+    <li class="product-plan">
+      <div class="title">Brow Lamination</div>
+      <div class="price">R$ 129,90</div>
+      <ul class="features">
+        <li class="check">Alinhamento e volume dos fios</li>
+        <li class="check">Hidratação profunda</li>
+        <li class="check">Efeito escova natural</li>
+        <li class="cross">Design incluso</li>
+        <li class="cross">Manutenção mensal</li>
+      </ul>
+      <button class="btn" onclick="window.open('https://wa.me/5511930757126?text=Olá! Quero agendar o BROW LAMINATION (R$ 129,90).', '_blank')">Agendar</button>
+    </li>
+
+    <!-- 6. Hydra Gloss -->
+    <li class="product-plan">
+      <div class="title">Hydra Gloss</div>
+      <div class="price">R$ 79,90</div>
+      <ul class="features">
+        <li class="check">Hidratação intensa para lábios</li>
+        <li class="check">Efeito gloss natural</li>
+        <li class="check">Maciez e viço imediato</li>
+        <li class="cross">Despigmentação</li>
+        <li class="cross">Micropigmentação</li>
+      </ul>
+      <button class="btn" onclick="window.open('https://wa.me/5511930757126?text=Olá! Tenho interesse no HYDRA GLOSS labial (R$ 79,90).', '_blank')">Agendar</button>
+    </li>
+  </ul>
+  <p class="obs-precos" style="text-align: center;">* Valores promocionais sujeitos a alteração.<br> Consulte condições de pacotes via WhatsApp.</p>
+</section>
 
 <!-- FOOTER COM ÍCONES E SEM LI (links diretos) -->
 <footer class="main_footer" id="contato">
